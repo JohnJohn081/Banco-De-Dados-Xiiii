@@ -18,7 +18,7 @@ Este repositório contém um projeto desenvolvido em **Java** com conexão ao ba
 - **IDE Recomendadas:** IntelliJ IDEA, Eclipse ou VS Code com extensão para Java
 
 ## 📂 Estrutura do Projeto
-
+```plaintext
 Banco-De-Dados-XIIII/
 ├── src/                      # Código fonte do projeto
 │   ├── dao/                  # Data Access Objects (DAO)
