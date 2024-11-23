@@ -1,5 +1,4 @@
 
-```markdown
 # Banco de Dados XIII
 
 Este repositório contém um projeto desenvolvido em **Java** com conexão ao banco de dados **MySQL** utilizando o **JDBC**. O objetivo é demonstrar como criar, manipular e gerenciar dados em um banco de dados relacional diretamente via código Java.
@@ -20,7 +19,6 @@ Este repositório contém um projeto desenvolvido em **Java** com conexão ao ba
 
 ## 📂 Estrutura do Projeto
 
-```plaintext
 Banco-De-Dados-XIIII/
 ├── src/                      # Código fonte do projeto
 │   ├── dao/                  # Data Access Objects (DAO)
