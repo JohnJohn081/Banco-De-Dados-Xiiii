@@ -44,7 +44,8 @@ public class App {
 
                     new UsuarioDAO().logarUsuario(u);
 
-                    if (u.isAcesso()){
+                    while(u.isAcesso()){
+                        if (u.isAcesso()){
 
 
                         System.out.println("---------------------------------");
@@ -52,60 +53,66 @@ public class App {
                         System.out.println("-                                ");
                         System.out.println("-  1- Cadastrar Aluno            ");
                         System.out.println("-  2- Editar aluno               ");
+                        System.out.println("-  3- Voltar                     ");
                         System.out.println("-                                ");
                         System.out.println("---------------------------------");
                         System.out.print("Escolha uma opção: ");
                         resposta = sc.nextInt();
-                        switch (resposta){
-                            case 1:
-                                sc.nextLine();
-                                System.out.print("Digite o nome do aluno: ");
-                                String nomeAluno = sc.nextLine();
-                                System.out.print("Digite qual será o Login do aluno: ");
-                                loginAluno = sc.nextLine();
-                                System.out.print("Digite qual será a Senha do aluno: ");
-                                senhaAluno = sc.nextLine();
-                                System.out.print("Digite a data de nascimento do aluno(ex: 11/11/2011): ");
-                                String dataAgeAluno = sc.nextLine();
+                            switch (resposta){
+                                case 1:
+                                    sc.nextLine();
+                                    System.out.print("Digite o nome do aluno: ");
+                                    String nomeAluno = sc.nextLine();
+                                    System.out.print("Digite qual será o Login do aluno: ");
+                                    loginAluno = sc.nextLine();
+                                    System.out.print("Digite qual será a Senha do aluno: ");
+                                    senhaAluno = sc.nextLine();
+                                    System.out.print("Digite a data de nascimento do aluno(ex: 11/11/2011): ");
+                                    String dataAgeAluno = sc.nextLine();
 
-                                al.setNome(nomeAluno);
-                                al.setAlunoLogin(loginAluno);
-                                al.setAlunoSenha(senhaAluno);
-                                al.setDataAge(dataAgeAluno);
+                                    al.setNome(nomeAluno);
+                                    al.setAlunoLogin(loginAluno);
+                                    al.setAlunoSenha(senhaAluno);
+                                    al.setDataAge(dataAgeAluno);
 
-                                System.out.println("Cadastrando aluno...");
-                                new UsuarioDAO().cadastrarAluno(al);
-                                System.out.println("Aluno cadastrado!");
-                                break;
-                            case 2:
-                                sc.nextLine();
-                                System.out.print("Digite o login do aluno: ");
-                                loginAluno = sc.nextLine();
-                                System.out.print("Digite a primeira nota do aluno: ");
-                                float nota1 = sc.nextFloat();
-                                System.out.print("Digite a segunda nota do aluno: ");
-                                float nota2 = sc.nextFloat();
-                                System.out.print("Digite a terceira nota do aluno: ");
-                                float nota3 = sc.nextFloat();
-                                System.out.print("Digite a quarta nota do aluno: ");
-                                float nota4 = sc.nextFloat();
+                                    System.out.println("Cadastrando aluno...");
+                                    new UsuarioDAO().cadastrarAluno(al);
+                                    System.out.println("Aluno cadastrado!");
+                                    break;
+                                case 2:
+                                    sc.nextLine();
+                                    System.out.print("Digite o login do aluno: ");
+                                    loginAluno = sc.nextLine();
+                                    System.out.print("Digite a primeira nota do aluno: ");
+                                    float nota1 = sc.nextFloat();
+                                    System.out.print("Digite a segunda nota do aluno: ");
+                                    float nota2 = sc.nextFloat();
+                                    System.out.print("Digite a terceira nota do aluno: ");
+                                    float nota3 = sc.nextFloat();
+                                    System.out.print("Digite a quarta nota do aluno: ");
+                                    float nota4 = sc.nextFloat();
 
-                                al.setAlunoLogin(loginAluno);
-                                al.setNota1(nota1);
-                                al.setNota2(nota2);
-                                al.setNota3(nota3);
-                                al.setNota4(nota4);
-                                new UsuarioDAO().cadastrarNota(al);
+                                    al.setAlunoLogin(loginAluno);
+                                    al.setNota1(nota1);
+                                    al.setNota2(nota2);
+                                    al.setNota3(nota3);
+                                    al.setNota4(nota4);
+                                    new UsuarioDAO().cadastrarNota(al);
 
-                                break;
-                            default:
-                                System.out.println("OPÇÃO INCORRETA");
-                                break;
+                                    break;
+                                case 3:
+                                    System.out.println("Deslogando usuario...");
+                                    u.setAcesso(false);
+                                    System.out.println("Usuario Deslogado");
+                                    break;
+                                default:
+                                    System.out.println("OPÇÃO INCORRETA");
+                                    break;
+                            }
                         }
-
-                    }
-                    else {
+                        else {
                         System.out.println("Login ou senha incorreto!");
+                        }
                     }
 
                     break;
