@@ -174,7 +174,7 @@ public class App {
 
                                 break;
                             case 2:
-                                System.out.println("embreve");
+                                System.out.println("embreve ( atualização futura )");
                                 break;
                             default:
                                 System.out.println("opção invalida");
