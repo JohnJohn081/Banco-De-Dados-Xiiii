@@ -146,53 +146,76 @@ public class App {
                     al.setAlunoSenha(senhaAluno);
 
                     new UsuarioDAO().logarAluno(al);
+                    while(al.isAcesso()) {
+                        if (al.isAcesso()) {
+                            System.out.println("---------------------------------");
+                            System.out.println("        BEM-VINDO                ");
+                            System.out.println("-                                ");
+                            System.out.println("-  1- Verificar perfil           ");
+                            System.out.println("-  2- Cronograma                 ");
+                            System.out.println("-  3- Exit                       ");
+                            System.out.println("-                                ");
+                            System.out.println("---------------------------------");
+                            System.out.print("Digite uma opção: ");
+                            resposta = sc.nextInt();
 
-                    if (al.isAcesso()){
-                        System.out.println("---------------------------------");
-                        System.out.println("        BEM-VINDO                ");
-                        System.out.println("-                                ");
-                        System.out.println("-  1- Verificar perfil           ");
-                        System.out.println("-  2- Cronograma                 ");
-                        System.out.println("-                                ");
-                        System.out.println("---------------------------------");
-                        System.out.print("Digite uma opção: ");
-                        resposta = sc.nextInt();
-
-                        switch (resposta){
-                            case 1:
-                                new UsuarioDAO().verificarBoletimAluno(al);
-                                System.out.println("Nome: " + al.getNome());
-                                System.out.println("Data de nascimento: " + al.getDataAge());
-                                System.out.println("Login: " + al.getAlunoLogin());
-                                System.out.println("Senha: " + al.getAlunoSenha());
-                                System.out.println("Nota 1: " + al.getNota1());
-                                System.out.println("Nota 2: " + al.getNota2());
-                                System.out.println("Nota 3: " + al.getNota3());
-                                System.out.println("Nota 4: " + al.getNota4());
+                            switch (resposta) {
+                                case 1:
+                                    new UsuarioDAO().verificarBoletimAluno(al);
+                                    System.out.println("Nome: " + al.getNome());
+                                    System.out.println("Data de nascimento: " + al.getDataAge());
+                                    System.out.println("Login: " + al.getAlunoLogin());
+                                    System.out.println("Senha: " + al.getAlunoSenha());
+                                    System.out.println("Nota 1: " + al.getNota1());
+                                    System.out.println("Nota 2: " + al.getNota2());
+                                    System.out.println("Nota 3: " + al.getNota3());
+                                    System.out.println("Nota 4: " + al.getNota4());
 
 
+                                    break;
+                                case 2:
+                                    System.out.println("+----------------+-----------+-----------+-----------+-----------+-----------+");
+                                    System.out.println("|     Horário    |  Segunda  |   Terça   |  Quarta   |   Quinta  |   Sexta   |");
+                                    System.out.println("+----------------+-----------+-----------+-----------+-----------+-----------+");
+                                    System.out.println("|  7:30 - 8:20   | Matemática|   Inglês  |   Artes   |  História | Geografia |");
+                                    System.out.println("|  8:20 - 9:10   | Matemática|   Química | Filosofia | Ed. Física| Português |");
+                                    System.out.println("|  9:10 - 9:30   |    ------- Intervalo -------                              |");
+                                    System.out.println("|  9:30 - 10:20  | Geografia | Matemática| Português |   Inglês  |  Química  |");
+                                    System.out.println("| 10:20 - 11:10  |   Artes   |  História | Filosofia | Ed. Física| Matemática|");
+                                    System.out.println("| 11:10 - 12:00  | Português |   Inglês  | Matemática|  História |  Química  |");
+                                    System.out.println("+----------------+-----------+-----------+-----------+-----------+-----------+");
+                                    System.out.println("| 12:00 - 13:00  |                 Almoço                                    |");
+                                    System.out.println("+----------------+-----------+-----------+-----------+-----------+-----------+");
+                                    System.out.println("| 13:00 - 13:50  |   Química | Português | Matemática| Filosofia | Geografia |");
+                                    System.out.println("| 13:50 - 14:40  |  História | Ed. Física|   Inglês  | Português | Matemática|");
+                                    System.out.println("| 14:40 - 15:00  |    ------- Intervalo -------                              |");
+                                    System.out.println("| 15:00 - 15:50  | Matemática| Português |   Química |  História | Filosofia |");
+                                    System.out.println("| 15:50 - 16:40  |   Inglês  |   Artes   | Geografia | Matemática| Ed. Física|");
+                                    System.out.println("+----------------+-----------+-----------+-----------+-----------+-----------+");
+                                    break;
+                                case 3:
+                                    System.out.println("Deslogando usuario...");
+                                    al.setAcesso(false);
+                                    System.out.println("Usuario Deslogado");
+                                    break;
+                                default:
+                                    System.out.println("opção invalida");
+                                    break;
+                            }
 
-                                break;
-                            case 2:
-                                System.out.println("embreve ( atualização futura )");
-                                break;
-                            default:
-                                System.out.println("opção invalida");
-                                break;
+                        } else {
+                            System.out.println("Login ou senha incorreta");
                         }
-
-                    }else {
-                        System.out.println("Login ou senha incorreta");
                     }
 
                 case 4:
-                    System.out.print("voce realmente quer sair? (1-sim/2-não): ");
+                    System.out.print("Deseja voltar ao menu inicial? (1-sim/2-não): ");
                     resposta = sc.nextInt();
-                    if (resposta == 1){
+                    if (resposta == 2){
                     System.out.println("Até breve!");
                     continuar = false;}
                     else {
-                        System.out.println("voltando...");
+                        System.out.println("Retornando...");
                     }
                     break;
                 default:
