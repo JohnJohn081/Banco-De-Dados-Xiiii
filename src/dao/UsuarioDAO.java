@@ -60,9 +60,9 @@ public class UsuarioDAO {
         }
     }
 
-    public void cadastrarAluno(Aluno aluno){
+    public void cadastrarAluno(Aluno aluno, Usuario usuario){
 
-        String sql = "INSERT INTO ALUNOS (ALUNONOME, ALUNOLOGIN, ALUNOSENHA, ALUNODATAAGE) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO ALUNOS (ALUNONOME, ALUNOLOGIN, ALUNOSENHA, ALUNODATAAGE, DIRETORRESPONSAVEL) VALUES(?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
 
@@ -72,6 +72,7 @@ public class UsuarioDAO {
             ps.setString(2, aluno.getAlunoLogin());
             ps.setString(3, aluno.getAlunoSenha());
             ps.setString(4, aluno.getDataAge());
+            ps.setString(5, usuario.getLogin());
             ps.execute();
             ps.close();
 

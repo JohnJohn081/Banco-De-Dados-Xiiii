@@ -77,7 +77,7 @@ public class App {
                                     al.setDataAge(dataAgeAluno);
 
                                     System.out.println("Cadastrando aluno...");
-                                    new UsuarioDAO().cadastrarAluno(al);
+                                    new UsuarioDAO().cadastrarAluno(al, u);
                                     System.out.println("Aluno cadastrado!");
                                     break;
                                 case 2:
