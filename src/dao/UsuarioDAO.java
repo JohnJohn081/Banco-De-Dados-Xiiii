@@ -96,13 +96,13 @@ public class UsuarioDAO {
             ps.setDouble(4, aluno.getNota4());
             ps.setString(5, aluno.getAlunoLogin());
             int result = ps.executeUpdate();
-            System.out.println("Procurando Aluno");
+            System.out.println("Procurando Aluno...");
             if(result > 0){
                 System.out.println("Aluno encontrado");
-                System.out.println("nota cadastrada!");
+                System.out.println("notas cadastradas!");
             }
             else{
-                System.out.println("Aluno não existe");
+                System.out.println("O Aluno não existe");
             }
 
             ps.close();
@@ -141,7 +141,8 @@ public class UsuarioDAO {
 
     }
 
-    public void verificarBoletimAluno(Aluno aluno){
+
+    public void verificarPerfilAluno(Aluno aluno){
 
         String sql = "SELECT alunoNome, alunoLogin, alunoSenha, alunoDataAge, nota1, nota2, nota3, nota4 FROM alunos WHERE alunoLogin = ?";
 
@@ -171,7 +172,29 @@ public class UsuarioDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        // exibir perfil do aluno
+        int statusAluno = 4;
+        System.out.println("---------------------------------");
+        System.out.println("          PERFIL ALUNO           ");
+        System.out.println("---------------------------------");
+        System.out.println("Nome: " + aluno.getNome());
+        System.out.println("Data de nascimento: " + aluno.getDataAge());
+        System.out.println("Login: " + aluno.getAlunoLogin());
+        System.out.println("Senha: " + aluno.getAlunoSenha());
+        System.out.println("Matemática: " + aluno.getNota1());
+        System.out.println("Português: " + aluno.getNota2());
+        System.out.println("Física: " + aluno.getNota3());
+        System.out.println("Ciências: " + aluno.getNota4());
 
+
+        // verificação de status de aluno
+        if(aluno.getNota1() <= 6){statusAluno -= 1;}
+        if(aluno.getNota2() <= 6){statusAluno -= 1;}
+        if(aluno.getNota3() <= 6){statusAluno -= 1;}
+        if(aluno.getNota4() <= 6){statusAluno -= 1;}
+        if (statusAluno < 2){System.out.println("STATUS: REPROVADO");}
+        else if (statusAluno == 2) {System.out.println("STATUS: RECUPERAÇÃO");}
+        else{System.out.println("STATUS: APROVADO");}
 
     }
 }

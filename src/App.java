@@ -39,6 +39,7 @@ public class App {
                     login = sc.nextLine();
                     System.out.print("Digite sua senha: ");
                     senha = sc.nextLine();
+                    System.out.println("Aguarde...");
                     u.setLogin(login);
                     u.setSenha(senha);
 
@@ -83,13 +84,13 @@ public class App {
                                     sc.nextLine();
                                     System.out.print("Digite o login do aluno: ");
                                     loginAluno = sc.nextLine();
-                                    System.out.print("Digite a primeira nota do aluno: ");
+                                    System.out.print("Digite a nota de Matemática do aluno: ");
                                     float nota1 = sc.nextFloat();
-                                    System.out.print("Digite a segunda nota do aluno: ");
+                                    System.out.print("Digite a nota de Português do aluno: ");
                                     float nota2 = sc.nextFloat();
-                                    System.out.print("Digite a terceira nota do aluno: ");
+                                    System.out.print("Digite a nota de Física do aluno: ");
                                     float nota3 = sc.nextFloat();
-                                    System.out.print("Digite a quarta nota do aluno: ");
+                                    System.out.print("Digite a nota de Ciências do aluno: ");
                                     float nota4 = sc.nextFloat();
 
                                     al.setAlunoLogin(loginAluno);
@@ -141,7 +142,7 @@ public class App {
                     loginAluno = sc.nextLine();
                     System.out.print("Digite sua senha: ");
                     senhaAluno = sc.nextLine();
-
+                    System.out.println("Aguarde...");
                     al.setAlunoLogin(loginAluno);
                     al.setAlunoSenha(senhaAluno);
 
@@ -161,17 +162,7 @@ public class App {
 
                             switch (resposta) {
                                 case 1:
-                                    new UsuarioDAO().verificarBoletimAluno(al);
-                                    System.out.println("Nome: " + al.getNome());
-                                    System.out.println("Data de nascimento: " + al.getDataAge());
-                                    System.out.println("Login: " + al.getAlunoLogin());
-                                    System.out.println("Senha: " + al.getAlunoSenha());
-                                    System.out.println("Nota 1: " + al.getNota1());
-                                    System.out.println("Nota 2: " + al.getNota2());
-                                    System.out.println("Nota 3: " + al.getNota3());
-                                    System.out.println("Nota 4: " + al.getNota4());
-
-
+                                    new UsuarioDAO().verificarPerfilAluno(al);
                                     break;
                                 case 2:
                                     System.out.println("+----------------+-----------+-----------+-----------+-----------+-----------+");
