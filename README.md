@@ -26,7 +26,7 @@ O **Banco de Dados XIIII** é um sistema simples de gerenciamento escolar desenv
    - Extraia o conteúdo do arquivo ZIP para uma pasta no seu computador. 📂
 
 3. **Siga as instruções de ComoExecutar.txt e execute o sistema**:
-   - Abra o .txt e logo após executar todas as ações informadas, execute o arquivo `.bat` BancoDeDadosXiii.bat. 🎯
+   - Abra o .txt e logo após executar todas as ações informadas, execute o arquivo BancoDeDadosXiii.bat. 🎯
 
 ## Contribua 🤝
 
