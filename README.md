@@ -7,7 +7,7 @@ O **Banco de Dados XIIII** é um sistema simples de gerenciamento escolar desenv
 ## Funcionalidades ⚙️
 
 - **Usuários ADMINS**: Responsáveis por criar e atualizar registros de alunos na base de dados. 🔑
-- **Cadastro e Edição de Alunos**: ADMINS podem criar novos alunos, editar suas informações e atualizar as notas.📝
+- **Cadastro e Edição de Alunos**: ADMINS podem criar novos alunos, editar suas informações e atualizar notas. 📝
 - **Consulta de Notas**: Alunos podem verificar suas notas diretamente no sistema. 📊
 - **Segurança**: Sistema que garante que apenas usuários ADMINS possam fazer alterações na base de dados. 🔒
 
