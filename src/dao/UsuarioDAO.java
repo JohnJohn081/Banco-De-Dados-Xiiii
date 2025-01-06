@@ -187,7 +187,6 @@ public class UsuarioDAO {
         System.out.println("Física: " + aluno.getNota3());
         System.out.println("Ciências: " + aluno.getNota4());
 
-
         // verificação de status de aluno
         if(aluno.getNota1() <= 6){statusAluno -= 1;}
         if(aluno.getNota2() <= 6){statusAluno -= 1;}
