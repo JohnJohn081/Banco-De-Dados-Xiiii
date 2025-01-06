@@ -7,11 +7,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args)  {
         boolean continuar = true;
-        String senha;
-        String login;
         int resposta;
-        String loginAluno;
-        String senhaAluno;
         Usuario u = new Usuario();
         Aluno al = new Aluno();
         Scanner sc = new Scanner(System.in);
@@ -35,13 +31,6 @@ public class App {
             switch (resposta){
                 case 1:
                     sc.nextLine();
-                    System.out.print("Digite seu Login: ");
-                    login = sc.nextLine();
-                    System.out.print("Digite sua senha: ");
-                    senha = sc.nextLine();
-                    System.out.println("Aguarde...");
-                    u.setLogin(login);
-                    u.setSenha(senha);
 
                     new UsuarioDAO().logarUsuario(u);
 
@@ -62,44 +51,13 @@ public class App {
                             switch (resposta){
                                 case 1:
                                     sc.nextLine();
-                                    System.out.print("Digite o nome do aluno: ");
-                                    String nomeAluno = sc.nextLine();
-                                    System.out.print("Digite qual será o Login do aluno: ");
-                                    loginAluno = sc.nextLine();
-                                    System.out.print("Digite qual será a Senha do aluno: ");
-                                    senhaAluno = sc.nextLine();
-                                    System.out.print("Digite a data de nascimento do aluno(ex: 11/11/2011): ");
-                                    String dataAgeAluno = sc.nextLine();
-
-                                    al.setNome(nomeAluno);
-                                    al.setAlunoLogin(loginAluno);
-                                    al.setAlunoSenha(senhaAluno);
-                                    al.setDataAge(dataAgeAluno);
-
-                                    System.out.println("Cadastrando aluno...");
                                     new UsuarioDAO().cadastrarAluno(al, u);
                                     System.out.println("Aluno cadastrado!");
                                     break;
                                 case 2:
                                     sc.nextLine();
-                                    System.out.print("Digite o login do aluno: ");
-                                    loginAluno = sc.nextLine();
-                                    al.setAlunoLogin(loginAluno);
                                     new UsuarioDAO().procurarAluno(al, u);
                                     if (u.isAlunoVerificacao()){
-                                        System.out.print("Digite a nota de Matemática do aluno: ");
-                                        float nota1 = sc.nextFloat();
-                                        System.out.print("Digite a nota de Português do aluno: ");
-                                        float nota2 = sc.nextFloat();
-                                        System.out.print("Digite a nota de Física do aluno: ");
-                                        float nota3 = sc.nextFloat();
-                                        System.out.print("Digite a nota de Ciências do aluno: ");
-                                        float nota4 = sc.nextFloat();
-
-                                        al.setNota1(nota1);
-                                        al.setNota2(nota2);
-                                        al.setNota3(nota3);
-                                        al.setNota4(nota4);
                                         new UsuarioDAO().cadastrarNota(al);
                                         break;
                                     }
@@ -122,18 +80,6 @@ public class App {
                     break;
                 case 2:
                     sc.nextLine();
-                    System.out.print("Digite seu nome completo: ");
-                    String nome = sc.nextLine();
-                    System.out.print("Digite seu novo login: ");
-                    login = sc.nextLine();
-                    System.out.print("Digite sua nova senha: ");
-                    senha = sc.nextLine();
-                    System.out.println("Cadastrando usuario...");
-
-                    u.setNome(nome);
-                    u.setLogin(login);
-                    u.setSenha(senha);
-                    u.setEmail("null");
 
                     new UsuarioDAO().cadastrarUsuario(u);
 
@@ -141,13 +87,6 @@ public class App {
                     break;
                 case 3:
                     sc.nextLine();
-                    System.out.print("Digite seu login: ");
-                    loginAluno = sc.nextLine();
-                    System.out.print("Digite sua senha: ");
-                    senhaAluno = sc.nextLine();
-                    System.out.println("Aguarde...");
-                    al.setAlunoLogin(loginAluno);
-                    al.setAlunoSenha(senhaAluno);
 
                     new UsuarioDAO().logarAluno(al);
                     while(al.isAcesso()) {
