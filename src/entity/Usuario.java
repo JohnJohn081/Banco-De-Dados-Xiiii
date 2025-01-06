@@ -6,6 +6,7 @@ public class Usuario {
     private String login;
     private String senha;
     private boolean acesso;
+    private boolean alunoVerificacao;
 
 
     public String getNome() {
@@ -46,5 +47,13 @@ public class Usuario {
 
     public void setAcesso(boolean acesso) {
         this.acesso = acesso;
+    }
+
+    public boolean isAlunoVerificacao() {
+        return alunoVerificacao;
+    }
+
+    public void setAlunoVerificacao(boolean alunoVerificacao) {
+        this.alunoVerificacao = alunoVerificacao;
     }
 }
