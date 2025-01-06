@@ -5,9 +5,14 @@ import entity.Aluno;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class UsuarioDAO {
-
+    String loginAluno;
+    String senhaAluno;
+    String login;
+    String senha;
+    Scanner sc = new Scanner(System.in);
 
     public void cadastrarUsuario(Usuario usuario){
 
@@ -15,6 +20,19 @@ public class UsuarioDAO {
         String sql = "INSERT INTO USUARIO (NOME, LOGIN, SENHA, EMAIL) VALUES (?, ?, ?, ?)";
 
         PreparedStatement ps = null;
+
+        System.out.print("Digite seu nome completo: ");
+        String nome = sc.nextLine();
+        System.out.print("Digite seu novo login: ");
+        login = sc.nextLine();
+        System.out.print("Digite sua nova senha: ");
+        senha = sc.nextLine();
+        System.out.println("Cadastrando usuario...");
+
+        usuario.setNome(nome);
+        usuario.setLogin(login);
+        usuario.setSenha(senha);
+        usuario.setEmail("null");
 
             try {
                 ps = Conexao.getConexao().prepareStatement(sql);
@@ -37,6 +55,14 @@ public class UsuarioDAO {
         String sql = "SELECT login, senha FROM usuario WHERE login = ? AND senha = ?";
 
         PreparedStatement ps = null;
+
+        System.out.print("Digite seu Login: ");
+        login = sc.nextLine();
+        System.out.print("Digite sua senha: ");
+        senha = sc.nextLine();
+        System.out.println("Aguarde...");
+        usuario.setLogin(login);
+        usuario.setSenha(senha);
 
         try {
             ps = Conexao.getConexao().prepareStatement(sql);
@@ -66,6 +92,21 @@ public class UsuarioDAO {
 
         PreparedStatement ps = null;
 
+        System.out.print("Digite o nome do aluno: ");
+        String nomeAluno = sc.nextLine();
+        System.out.print("Digite qual será o Login do aluno: ");
+        loginAluno = sc.nextLine();
+        System.out.print("Digite qual será a Senha do aluno: ");
+        senhaAluno = sc.nextLine();
+        System.out.print("Digite a data de nascimento do aluno(ex: 11/11/2011): ");
+        String dataAgeAluno = sc.nextLine();
+
+        aluno.setNome(nomeAluno);
+        aluno.setAlunoLogin(loginAluno);
+        aluno.setAlunoSenha(senhaAluno);
+        aluno.setDataAge(dataAgeAluno);
+
+        System.out.println("Cadastrando aluno...");
         try {
             ps = Conexao.getConexao().prepareStatement(sql);
             ps.setString(1, aluno.getNome());
@@ -88,6 +129,19 @@ public class UsuarioDAO {
 
         PreparedStatement ps = null;
 
+        System.out.print("Digite a nota de Matemática do aluno: ");
+        float nota1 = sc.nextFloat();
+        System.out.print("Digite a nota de Português do aluno: ");
+        float nota2 = sc.nextFloat();
+        System.out.print("Digite a nota de Física do aluno: ");
+        float nota3 = sc.nextFloat();
+        System.out.print("Digite a nota de Ciências do aluno: ");
+        float nota4 = sc.nextFloat();
+
+        aluno.setNota1(nota1);
+        aluno.setNota2(nota2);
+        aluno.setNota3(nota3);
+        aluno.setNota4(nota4);
 
         try{
             ps = Conexao.getConexao().prepareStatement(sql);
@@ -120,6 +174,15 @@ public class UsuarioDAO {
         String sql = "SELECT alunoLogin, alunoSenha FROM alunos WHERE alunoLogin = ? AND alunoSenha = ?";
 
         PreparedStatement ps = null;
+
+        System.out.print("Digite seu login: ");
+        loginAluno = sc.nextLine();
+        System.out.print("Digite sua senha: ");
+        senhaAluno = sc.nextLine();
+        System.out.println("Aguarde...");
+        aluno.setAlunoLogin(loginAluno);
+        aluno.setAlunoSenha(senhaAluno);
+
 
         try{
             ps = Conexao.getConexao().prepareStatement(sql);
@@ -187,6 +250,7 @@ public class UsuarioDAO {
         System.out.println("Física: " + aluno.getNota3());
         System.out.println("Ciências: " + aluno.getNota4());
 
+
         // verificação de status de aluno
         if(aluno.getNota1() <= 6){statusAluno -= 1;}
         if(aluno.getNota2() <= 6){statusAluno -= 1;}
@@ -203,6 +267,9 @@ public class UsuarioDAO {
         String sql = "SELECT alunoLogin FROM alunos WHERE alunoLogin = ?";
 
         PreparedStatement ps = null;
+        System.out.print("Digite o login do aluno: ");
+        loginAluno = sc.nextLine();
+        aluno.setAlunoLogin(loginAluno);
 
         try{
             ps = Conexao.getConexao().prepareStatement(sql);
