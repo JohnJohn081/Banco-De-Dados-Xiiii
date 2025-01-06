@@ -84,22 +84,25 @@ public class App {
                                     sc.nextLine();
                                     System.out.print("Digite o login do aluno: ");
                                     loginAluno = sc.nextLine();
-                                    System.out.print("Digite a nota de Matemática do aluno: ");
-                                    float nota1 = sc.nextFloat();
-                                    System.out.print("Digite a nota de Português do aluno: ");
-                                    float nota2 = sc.nextFloat();
-                                    System.out.print("Digite a nota de Física do aluno: ");
-                                    float nota3 = sc.nextFloat();
-                                    System.out.print("Digite a nota de Ciências do aluno: ");
-                                    float nota4 = sc.nextFloat();
-
                                     al.setAlunoLogin(loginAluno);
-                                    al.setNota1(nota1);
-                                    al.setNota2(nota2);
-                                    al.setNota3(nota3);
-                                    al.setNota4(nota4);
-                                    new UsuarioDAO().cadastrarNota(al);
+                                    new UsuarioDAO().procurarAluno(al, u);
+                                    if (u.isAlunoVerificacao()){
+                                        System.out.print("Digite a nota de Matemática do aluno: ");
+                                        float nota1 = sc.nextFloat();
+                                        System.out.print("Digite a nota de Português do aluno: ");
+                                        float nota2 = sc.nextFloat();
+                                        System.out.print("Digite a nota de Física do aluno: ");
+                                        float nota3 = sc.nextFloat();
+                                        System.out.print("Digite a nota de Ciências do aluno: ");
+                                        float nota4 = sc.nextFloat();
 
+                                        al.setNota1(nota1);
+                                        al.setNota2(nota2);
+                                        al.setNota3(nota3);
+                                        al.setNota4(nota4);
+                                        new UsuarioDAO().cadastrarNota(al);
+                                        break;
+                                    }
                                     break;
                                 case 3:
                                     System.out.println("Deslogando usuario...");
