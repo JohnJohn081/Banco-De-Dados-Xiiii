@@ -198,4 +198,31 @@ public class UsuarioDAO {
         else{System.out.println("STATUS: APROVADO");}
 
     }
+
+    public void procurarAluno(Aluno aluno, Usuario usuario){
+
+        String sql = "SELECT alunoLogin FROM alunos WHERE alunoLogin = ?";
+
+        PreparedStatement ps = null;
+
+        try{
+            ps = Conexao.getConexao().prepareStatement(sql);
+            ps.setString(1, aluno.getAlunoLogin());
+            System.out.println("Procurando aluno...");
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()){
+                System.out.println("Aluno encontrado");
+                usuario.setAlunoVerificacao(true);
+            } else {
+                System.out.println("Aluno não existe");
+                usuario.setAlunoVerificacao(false);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
 }
+
