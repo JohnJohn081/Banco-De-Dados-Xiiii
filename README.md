@@ -20,8 +20,7 @@ O **Banco de Dados XIIII** é um sistema simples de gerenciamento escolar desenv
 ## Como executar o projeto 🚀
 
 1. **Baixe o projeto**:
-2. 
-3.   [BancoDeDadosXiii.zip](https://github.com/user-attachments/files/18341615/BancoDeDadosXiii.zip)📥
+2.   [BancoDeDadosXiii.zip](https://github.com/user-attachments/files/18341615/BancoDeDadosXiii.zip)📥
 
 4. **Descompacte o arquivo ZIP**:
    - Extraia o conteúdo do arquivo ZIP para uma pasta no seu computador. 📂
