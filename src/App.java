@@ -27,7 +27,7 @@ public class App {
             System.out.print("Escolha uma opção: ");
             resposta = sc.nextInt();
 
-
+            
             switch (resposta){
                 case 1:
                     sc.nextLine();
